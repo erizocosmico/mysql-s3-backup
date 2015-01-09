@@ -1,0 +1,33 @@
+{
+  "name": "mysql-s3-backup",
+  "version": "1.0.0",
+  "description": "Perform a MySQL database backup every X seconds and upload it to amazon s3.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvader/mysql-s3-backup"
+  },
+  "keywords": [
+    "mysql",
+    "backup",
+    "amazon",
+    "s3",
+    "database"
+  ],
+  "author": "Miguel Molina <hi@mvader.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvader/mysql-s3-backup/issues"
+  },
+  "homepage": "https://github.com/mvader/mysql-s3-backup",
+  "dependencies": {
+    "s3": "4.3.*",
+    "winston": "0.8.*",
+    "q": "1.1.*",
+    "lodash": "2.4.*",
+    "shelljs": "0.3.*"
+  }
+}

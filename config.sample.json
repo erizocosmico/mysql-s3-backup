@@ -1,0 +1,13 @@
+{
+	"accessKeyId": "acces key",
+	"secretAccessKey": "access secret",
+	"dbUser": "database user",
+	"dbHost": "database host, localhost by default",
+	"dbPort": "database port, 3306 by default",
+	"dbName": "database name",
+	"dbPassword": "database password",
+	"interval": "number of seconds between backups",
+	"bucket": "bucket where the backups will be stored",
+	"keyPrefix": "prefix for the amazon file name",
+	"overrideCommand": "if your mysqldump is not accessible through console as 'mysqldump ...' change it for its location"
+}
