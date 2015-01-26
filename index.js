@@ -106,7 +106,7 @@ function performBackup(config) {
         });
 
     shell.exec(cmd, {silent: true}, function (code, output) {
-        if (code !== 0) {
+        if (code !== undefined && code !== 0) {
             log.error("Unable to perform a backup at " + new Date().toISOString());
             deferred.reject();
         } else {
