@@ -1,6 +1,7 @@
 {
 	"accessKeyId": "acces key",
 	"secretAccessKey": "access secret",
+	"region": "S3 bucket region",
 	"dbUser": "database user",
 	"dbHost": "database host, localhost by default",
 	"dbPort": "database port, 3306 by default",
