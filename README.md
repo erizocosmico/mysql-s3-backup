@@ -16,6 +16,7 @@ Now you must edit the ```config.json``` file to configure the backups.
 
 * **accessKeyId**: Amazon s3 access key.
 * **secretAccessKey**: Amazon s3 access secret.
+* **region**: S3 bucket region.
 * **dbUser**: database user.
 * **dbHost**: database host, localhost by default.
 * **dbPort**: database port, 3306 by default.
