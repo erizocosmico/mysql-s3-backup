@@ -93,7 +93,7 @@ function getFinalFilename(filename, config) {
  */
 function performBackup(config) {
     var deferred = q.defer(),
-        cmdTpl = '<%= cmd %> --hex-blob -h <%= host %> -P <%= port %> -u <%= user %> -p<%= pass %> <%= database %>',
+        cmdTpl = '<%= cmd %> --hex-blob -h <%= host %> -P <%= port %> -u <%= user %> -p\'<%= pass %>\' <%= database %>',
         filename = generateBackupFilename(config.dbName),
         cmd = _.template(cmdTpl, {
             cmd: config.overrideCommand || 'mysqldump',
