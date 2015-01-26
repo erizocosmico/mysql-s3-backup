@@ -1,6 +1,6 @@
 {
   "name": "mysql-s3-backup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Perform a MySQL database backup every X seconds and upload it to amazon s3.",
   "main": "index.js",
   "scripts": {
