@@ -25,7 +25,7 @@ var s3 = require('s3'),
  * @return {Boolean}
  */
 function validateConfig(config) {
-    return config.accessKeyId && config.secretAccessKey && config.dbUser
+    return config.accessKeyId && config.secretAccessKey && config.region && config.dbUser
         && config.dbName && config.dbPassword && Number(config.interval)
         && config.bucket;
 }
@@ -56,7 +56,8 @@ function createS3Client(config) {
     return s3.createClient({
         s3Options: {
             accessKeyId: config.accessKeyId,
-            secretAccessKey: config.secretAccessKey
+            secretAccessKey: config.secretAccessKey,
+            region: config.region
         }
     });
 }
