@@ -94,7 +94,7 @@ function getFinalFilename(filename, config) {
  */
 function performBackup(config) {
     var deferred = q.defer(),
-        cmdTpl = '<%= cmd %> --hex-blob -h <%= host %> -P <%= port %> -u <%= user %> -p\'<%= pass %>\' <%= database %>',
+        cmdTpl = '<%= cmd %> --hex-blob -h <%= host %> -P <%= port %> -u <%= user %> -p\'<%= pass %>\' <%= database %> > <%= filename %>',
         filename = generateBackupFilename(config.dbName),
         cmd = _.template(cmdTpl, {
             cmd: config.overrideCommand || 'mysqldump',
@@ -102,21 +102,24 @@ function performBackup(config) {
             port: config.dbPort || 3306,
             user: config.dbUser,
             pass: config.dbPassword,
-            database: config.dbName
+            database: config.dbName,
+            filename: filename
         });
-
+    log.info("Running: " , cmd);
     shell.exec(cmd, {silent: true}, function (code, output) {
         if (code !== undefined && code !== 0) {
             log.error("Unable to perform a backup at " + new Date().toISOString());
             deferred.reject();
         } else {
-            output.to(filename);
+            // we have a limitation of 20 mb, so we exec the command with the filename and dont use the stream:
+            // output.to(filename);
             deferred.resolve(filename);
         }
     });
 
     return deferred.promise;
 }
+
 
 /**
  * Uploads the backup file to amazon s3
